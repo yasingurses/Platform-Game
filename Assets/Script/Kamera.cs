@@ -6,13 +6,11 @@ public class Kamera : MonoBehaviour
 {
     public Transform karakter;
 
-
-
-    void Update()
-    {
-        if (karakter.position.x > transform.position.x)
-        {
-            transform.position = new Vector3(karakter.position.x, transform.position.y, transform.position.z);
-        }
-    }
+    public Transform target;
+    public Vector3 posOffset;
+    public float smooth;
+    Vector3 velocity;
+    private void LateUpdate()
+    { transform.position = Vector3.SmoothDamp(transform.position, target.position + posOffset, ref velocity, smooth); }
+ 
 }

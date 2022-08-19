@@ -8,7 +8,7 @@ public class Karakterkontrol : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     public float hiz;
-    private float hareket;
+    public float hareket;
 
 
     private bool zemin;
@@ -34,6 +34,7 @@ public class Karakterkontrol : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        
 
     }
     private void Update()
@@ -74,7 +75,7 @@ public class Karakterkontrol : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         zemin = Physics2D.OverlapCircle(zeminKontrol.position, yaricapKontrol, zeminNe);
         hareket = Input.GetAxis("Horizontal");
